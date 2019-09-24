@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+}
+
+div.footerboerenbusiness {
+    border: solid 1px black;
+    display: inline-block;
+    height: 550px;
+    width: 300px;
+    font-family: Arial;
+    margin-left: 10px;
+}
+
+div.footerdca {
+    border: solid 1px black;
+    display: inline-block;
+    height: 550px;
+    width: 300px;
+    font-family: Arial;
+    margin-left: 10px;
+}
+div.footeruienhandel {
+    border: solid 1px black;
+    display: inline-block;
+    height: 550px;
+    width: 300px;
+    font-family: Arial;
+    margin-left: 10px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+
+img.logoformaat {
+    width: 250px;
+    height: 110px;
+    margin-left: 23px;
+}
+
+img.dca {
+    width: 250px;
+    height: 50px;
+    margin-left: 23px;
+    margin-top: 20px;
+}
+
+img.ui {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+img.dca2015 {
+    height: 100px;
+    width: 300px;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------- BOERENBUSINESS-----------------------------------*/
+div.footerboerenbusiness i {
+    color: white;
+    background-color: #3da0d5;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 50%;
+}
+
+
+p.icontekst {
+    display: inline-block;
+    margin-top: 6px;
+    margin-left: 3px;
+    margin-bottom: 0;
+}
+
+div.footerboerenbusiness img.logoformaat {
+    height: 40px;
+    margin-top: 10px;
+}
+
+p.disclaimer {
+    color: #eaeaea;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/*---------------------------------------------------------------- EIINDE BOERENBUSINESS -------------------------------------*/
+/*---------------------------------------------------------------- UIENHANDEL-----------------------------------------------*/
+div.footeruienhandel i {
+    margin-left: 10px;
+    color: white;
+    background-color: #950057;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 50%;
+}
+
+div.lijntje {
+    border-left: 2px solid #eaeaea;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+
+div.footeruienhandel p.functie {
+    color: #950057;
+    font-style: normal;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-left: 30px;
+}
+
+div.socialicons {
+    display: inline-block;
+    margin-left: 60%;
+    margin-top: 20px;
+}
+
+div.socialicons i {
+    background-color: white;
+    color: #e3e3e3;
+    display: inline;
+    margin-left: 10px;
+}
+
+hr.streepje2 {
+    width: 80%;
+    color: #e3e3e3;
+}
+
+
+/*---------------------------------------------------------------- EINDE UIENHANDEL-----------------------------------------------*/
+
+
+
+/*---------------------------------------------------------------- DCA -----------------------------------------------*/
+div.footer {
+    border: solid 1px black;
+    display: inline-block;
+    height: 450px;
+    width: 300px;
+    font-family: Arial;
+    margin-left: 10px;
+}
+
+img.logoformaat {
+    width: 250px;
+    height: 110px;
+    margin-left: 23px;
+}
+
+img.dca {
+    width: 250px;
+    height: 50px;
+    margin-left: 23px;
+    margin-top: 20px;
+}
+
+img.ui {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+img.dca2015 {
+    height: 100px;
+    width: 300px;
+}
+
+i {
+    margin-left: 30px;
+    color: darkgray;
+}
+
+hr.streepje {
+    width: 30px;
+    margin-left: 30px;
+}
+
+p.groet {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+p.naam {
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 30px;
+}
+
+p.functie {
+    font-style: italic;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-left: 30px;
+}
+
+p.icontekst {
+    display: inline-block;
+    margin-top: 6px;
+    margin-left: 3px;
+    margin-bottom: 0;
+}
+
+div.footerdca p.disclaimer {
+    color: #d6dee3;
+}
+
+
+
+/*---------------------------------------------------------------- EINDEDCA-----------------------------------------------*/

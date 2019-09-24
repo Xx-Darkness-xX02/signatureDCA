@@ -1,0 +1,66 @@
+div.footer {
+    border: solid 1px black;
+    display: inline-block;
+    height: 450px;
+    width: 300px;
+    font-family: Arial;
+    margin-left: 10px;
+}
+
+img.logoformaat {
+    width: 250px;
+    height: 110px;
+    margin-left: 23px;
+}
+
+img.dca {
+    width: 250px;
+    height: 50px;
+    margin-left: 23px;
+    margin-top: 20px;
+}
+
+img.ui {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+img.dca2015 {
+    height: 100px;
+    width: 300px;
+}
+
+i {
+    margin-left: 30px;
+    color: darkgray;
+}
+
+hr.streepje {
+    width: 30px;
+    margin-left: 30px;
+}
+
+p.groet {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+p.naam {
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 30px;
+}
+
+p.functie {
+    font-style: italic;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-left: 30px;
+}
+
+p.icontekst {
+    display: inline-block;
+    margin-top: 6px;
+    margin-left: 3px;
+    margin-bottom: 0;
+}
