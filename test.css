@@ -6,7 +6,7 @@ div.footerboerenbusiness {
     border: solid 1px black;
     display: inline-block;
     height: 550px;
-    width: 300px;
+    width: 350px;
     font-family: Arial;
     margin-left: 10px;
 }
@@ -15,7 +15,7 @@ div.footerdca {
     border: solid 1px black;
     display: inline-block;
     height: 550px;
-    width: 300px;
+    width: 350px;
     font-family: Arial;
     margin-left: 10px;
 }
@@ -23,19 +23,12 @@ div.footeruienhandel {
     border: solid 1px black;
     display: inline-block;
     height: 550px;
-    width: 300px;
+    width: 350px;
     font-family: Arial;
     margin-left: 10px;
 }
 
 /*-------------------------------------------------------------------------------------------*/
-
-
-img.logoformaat {
-    width: 250px;
-    height: 110px;
-    margin-left: 23px;
-}
 
 img.dca {
     width: 250px;
@@ -64,17 +57,13 @@ div.footerboerenbusiness i {
     height: 30px;
     width: 30px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 7px;
     border-radius: 50%;
+    margin-top: 5px;
 }
 
 
-p.icontekst {
-    display: inline-block;
-    margin-top: 6px;
-    margin-left: 3px;
-    margin-bottom: 0;
-}
+
 
 div.footerboerenbusiness img.logoformaat {
     height: 40px;
@@ -96,8 +85,9 @@ div.footeruienhandel i {
     height: 30px;
     width: 30px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 7px;
     border-radius: 50%;
+    margin-top: 5px;
 }
 
 div.lijntje {
@@ -110,7 +100,7 @@ div.lijntje {
 div.footeruienhandel p.functie {
     color: #950057;
     font-style: normal;
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 2px;
     margin-left: 30px;
 }
@@ -174,6 +164,7 @@ img.dca2015 {
 i {
     margin-left: 30px;
     color: darkgray;
+    margin-top: 10px;
 }
 
 hr.streepje {
@@ -194,7 +185,7 @@ p.naam {
 
 p.functie {
     font-style: italic;
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 2px;
     margin-left: 30px;
 }
@@ -202,7 +193,7 @@ p.functie {
 p.icontekst {
     display: inline-block;
     margin-top: 6px;
-    margin-left: 3px;
+    margin-left: 10px;
     margin-bottom: 0;
 }
 

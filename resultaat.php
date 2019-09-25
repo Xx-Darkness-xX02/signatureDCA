@@ -12,64 +12,26 @@
 </head>
 <body>
 </body>
+
+
 <?php
 require_once ('connectvars.php');
 
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-$query = "SELECT * FROM dca_werknemers";
+$query = "SELECT * FROM dca_werknemers WHERE naam = '$footer'";
 
 $data = mysqli_query($dbc, $query);
 
-while($row = mysqli_fetch_array($data)) {
-
-    echo '<div class="footer">';
-    echo '<p class="groet">Met vriendelijke groet,</p> <br/>';
-    echo '<p class="naam">' . $row['naam'] .'</p>';
-    echo '<p class="functie">' . $row['functie'] . '</p><hr class="streepje">';
-    echo '<i class="far fa-envelope"></i><p  class="icontekst">'. $row['email'] .'</p><br/>';
-    echo '<i class="fas fa-phone"></i><p  class="icontekst">'. $row['telefoonnummer'] .'</p><br/>';
-    echo '<i class="fab fa-wordpress-simple"></i><p class="icontekst">'. $row['website'] .'</p><br/>';
-
-    // twitter ROW deze is niet verplicht
-    if (!empty($row['twitter'])) {
-        echo '<i class="fab fa-twitter"></i><p class="icontekst">' . $row['twitter'] . '</p><br/>';
-    }else {
-        echo '';
-    }
-
-    // linkedIN ROW deze is niet verplicht
-if (!empty($row['linkedin'])) {
-    echo '<i class="fab fa-linkedin-in"></i><p class="icontekst">' . $row['linkedin'] . '</p><br/>';
-}else {
-    echo '';
-}
-
-// dit is de functie die bepaald welke image wordt afgebeeld
-        if ($row['logo'] == 0){
-            echo '<img class="logoformaat" src="img/BB_logo_2017.jpg">';
-        }else if ($row['logo'] == 1){
-            echo '<img class="ui" src="img/Capture.JPG">';
-        }else if ($row['logo'] == 2){
-            echo '<img class="dca" src="img/DCA-MULTIMEDIA-logo-2016-CMYK.png">';
-        }else if ($row['logo'] == 3){
-            echo '<img class="dca" src="img/ICT-logo-2017-CMYK.png">';
-        }else if ($row['logo'] == 4){
-            echo '<img class="dca2015" src="img/DCAGROEP-logo-2015-CMYK.jpg">';
-        }else if ($row['logo'] == 5){
-            echo '<img class="dca" src="img/DCA_logo_2015_CMYK.png">';
-        }else if ($row['logo'] == 6){
-            echo '<img class="dca" src="img/DCA-Markets_logo_2018.png">';
-        }
-
-
-
-    echo '</div>';
-}
 
 
 
 mysqli_close($dbc)
 ?>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <label for="footer">Jou persoonlijke email signatures: </label>
+    <input type="text" id="footer" name="footer" value="<?php if (!empty($footer)) echo $footer; ?>"/>
+    <input type="submit" value="zoek" name="submit">
+</form>
 </body>
 </html>
