@@ -16,20 +16,25 @@
 
 <?php
 require_once ('connectvars.php');
+$footer = isset($_POST['footer']) ? $_POST['footer'] : '';
+
 
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 $query = "SELECT * FROM dca_werknemers WHERE naam = '$footer'";
 
 $data = mysqli_query($dbc, $query);
+while($row = $data->fetch_assoc()){
 
+    print_r($row);
+}
 
 
 
 mysqli_close($dbc)
 ?>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="footer">Jou persoonlijke email signatures: </label>
+    <label for="footer">Jouw persoonlijke email signatures: </label>
     <input type="text" id="footer" name="footer" value="<?php if (!empty($footer)) echo $footer; ?>"/>
     <input type="submit" value="zoek" name="submit">
 </form>

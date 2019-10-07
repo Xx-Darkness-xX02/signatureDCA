@@ -67,13 +67,13 @@ if (isset($_POST['submit'])) {
     <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>*niet
     verplicht<br/>
     <label for="logo">kies een logo:</label><br/>
-    1<input type="checkbox" id="logo" name="logo" value="0" <br/><br/>
-    2<input type="checkbox" id="logo" name="logo" value="1" <br/><br/>
-    3<input type="checkbox" id="logo" name="logo" value="2" <br/><br/>
-    4<input type="checkbox" id="logo" name="logo" value="3" <br/><br/>
-    5<input type="checkbox" id="logo" name="logo" value="4" <br/><br/>
-    6<input type="checkbox" id="logo" name="logo" value="5" <br/><br/>
-    7<input type="checkbox" id="logo" name="logo" value="6" <br/><br/>
+    1<input type="checkbox" id="logo" name="logo" value="0">boerenbusines <br/><br/>
+    2<input type="checkbox" id="logo" name="logo" value="1">uienhandel <br/><br/>
+    3<input type="checkbox" id="logo" name="logo" value="2">dca multimedia <br/><br/>
+    4<input type="checkbox" id="logo" name="logo" value="3">dca-ict <br/><br/>
+    5<input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
+    6<input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
+    7<input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/><br/>
     <label for="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
