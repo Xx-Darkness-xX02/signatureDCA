@@ -8,7 +8,6 @@ div.footerboerenbusiness i {
     border-radius: 50%;
     margin-top: 5px;
 }
-
 div.footeruienhandel i {
     margin-left: 10px;
     color: white;
@@ -19,10 +18,6 @@ div.footeruienhandel i {
     padding-top: 7px;
     border-radius: 50%;
     margin-top: 5px;
-}
-div.lijntje {
-    border-left: 2px solid #eaeaea;
-    display: inline-block;
 }
 div.socialicons {
     display: inline-block;
@@ -35,17 +30,12 @@ div.socialicons i {
     display: inline;
     margin-left: 10px;
 }
-hr.streepje2 {
-    width: 80%;
-    color: #e3e3e3;
-}
 i {
     color: darkgray;
     margin-top: 10px;
 }
-p.icontekst {
-    display: inline-block;
-    margin-top: 6px;
-    margin-left: 10px;
-    margin-bottom: 0;
-}
+
+
+
+
+
