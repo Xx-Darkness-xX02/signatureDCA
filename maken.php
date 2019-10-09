@@ -62,14 +62,15 @@ while($row = mysqli_fetch_array($data))
 //BOERENBUSINESS FOOTERS
     echo '<div class="footer_wrapper" style="font-family: Arial; box-sizing: border-box; height: 550px; width: 350px;">';
 
-   $brandresolve = array(0 => array('klasse' => "footerboerenbusiness", 'logo' => 'img/boerenbusiness.jpg.JPG', 'color_disc' => '#', ),
-                         1 => array('klasse' => "footeruienhandel", 'logo' => 'img/Capture.JPG', 'color_primary' => '#950057', 'color_disc' => '#aeaeae', ),
-                         2 => array('klasse' => "footerDCA", 'logo' => 'img/DCA-MULTIMEDIA-logo-2016-CMYK.png', 'color_disc' => '#d6dee3',  ),
-                         3 => array('klasse' => "footerDCA", 'logo' => 'img/ICT-logo-2017-CMYK.png', 'color_disc' => '#d6dee3',  ),
-                         4 => array('klasse' => "footerDCA", 'logo' => 'img/DCAGROEP-logo-2015-CMYK.jpg', 'color_disc' => '#d6dee3',  ),
-                         5 => array('klasse' => "footerDCA", 'logo' => 'img/DCA_logo_2015_CMYK.png', 'color_disc' => '#d6dee3',  ),
-                         6 => array('klasse' => "footerDCA", 'logo' => 'img/DCA-Markets_logo_2018.png', 'color_disc' => '#d6dee3',  )
+   $brandresolve = array(0 => array('klasse' => "footerboerenbusiness", 'logo' => 'img/boerenbusiness.jpg.JPG', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png'),
+                         1 => array('klasse' => "footeruienhandel", 'logo' => 'img/Capture.JPG', 'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png' ),
+                         2 => array('klasse' => "footerDCA", 'logo' => 'img/DCA-MULTIMEDIA-logo-2016-CMYK.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
+                         3 => array('klasse' => "footerDCA", 'logo' => 'img/ICT-logo-2017-CMYK.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
+                         4 => array('klasse' => "footerDCA", 'logo' => 'img/DCAGROEP-logo-2015-CMYK.jpg', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
+                         5 => array('klasse' => "footerDCA", 'logo' => 'img/DCA_logo_2015_CMYK.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
+                         6 => array('klasse' => "footerDCA", 'logo' => 'img/DCA-Markets_logo_2018.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' )
    );
+
 
         echo '<span class="copy" onclick="javascript:copyFooter(\''.$row['id'].'\')"><i class="fas fa-clipboard"></i></span>';
         echo '<div id="'.$row['id'].'" class="'.$brandresolve[$row["logo"]]["klasse"].'" style="padding: 30px;">';
@@ -82,7 +83,7 @@ while($row = mysqli_fetch_array($data))
 
         echo '<i class="far fa-envelope"></i><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
         echo '<i class="fas fa-phone"></i><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
-        echo '<i class="fab fa-wordpress-simple"></i><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
+        echo '<img src="'. $brandresolve[$row['logo']]['icon_website'].'"><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
 
         // twitter ROW deze is niet verplicht
         if (!empty($row['twitter'])) {
@@ -103,10 +104,10 @@ while($row = mysqli_fetch_array($data))
 
         //dit is de functie die bepaald of er wel of geen social media iconen moeten komen te staan
         if ($row['socialmedia'] == 'yes'){
-            echo '<div class="socialicons">';
-            echo '<i class="fab fa-facebook-f"></i>';
-            echo '<i class="fab fa-twitter"></i>';
-            echo '<i class="fab fa-youtube"></i>';
+            echo '<div class="socialicons" style="display: inline-block; margin-left: 60%; margin-top: 20px;">';
+            echo '<img src="goede_icons/facebook_social.png">';
+            echo '<img src="goede_icons/twitter_social.png">';
+            echo '<img src="goede_icons/youtube_social.png">';
             echo '</div><hr class="streepje2" style="width: 80%; color: #e3e3e3; " />';
         }
 
