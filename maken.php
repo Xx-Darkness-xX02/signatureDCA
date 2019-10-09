@@ -1,9 +1,5 @@
-<link rel="stylesheet" href="test.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
-
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <label for="footer">Jouw persoonlijke email signatures: </label>
     <input type="text" id="footer" name="footer" value="<?php if (!empty($footer)) echo $footer; ?>"/>
@@ -24,7 +20,6 @@
     *{
         box-sizing: border-box;
     }
-
 </style>
 <script>
     function copyFooter(containerid) {
@@ -62,8 +57,8 @@ while($row = mysqli_fetch_array($data))
 //BOERENBUSINESS FOOTERS
     echo '<div class="footer_wrapper" style="font-family: Arial; box-sizing: border-box; height: 550px; width: 350px;">';
 
-   $brandresolve = array(0 => array('klasse' => "footerboerenbusiness", 'logo' => 'img/boerenbusiness.jpg.JPG', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#3da0d5'),
-                         1 => array('klasse' => "footeruienhandel", 'logo' => 'img/Capture.JPG', 'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#950057'),
+   $brandresolve = array(0 => array('klasse' => "footerboerenbusiness", 'logo' => 'img/boerenbusiness.jpg.JPG', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#3da0d5', 'icon_height' => '33px', 'icon_width' => '33px' ),
+                         1 => array('klasse' => "footeruienhandel", 'logo' => 'img/Capture.JPG', 'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#950057', 'icon_height' => '33px', 'icon_width' => '33px'),
                          2 => array('klasse' => "footerDCA", 'logo' => 'img/DCA-MULTIMEDIA-logo-2016-CMYK.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
                          3 => array('klasse' => "footerDCA", 'logo' => 'img/ICT-logo-2017-CMYK.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
                          4 => array('klasse' => "footerDCA", 'logo' => 'img/DCAGROEP-logo-2015-CMYK.jpg', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
@@ -81,18 +76,18 @@ while($row = mysqli_fetch_array($data))
         if($row['logo'] == 1) echo '<div style="display: inline-block; border-left: solid 2px #aeaeae">';
         else if($row['logo'] > 1) echo '<hr style="width: 30px; margin-left: 0;">';
 
-        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: 33px; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_email'] .'" style="padding-top: 8px;"></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
-        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: 33px; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_telefoon'] .'" style="padding-top: 8px;"></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
-        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: 33px; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_website'].'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
+        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_email'] .'" style="padding-top: 8px;"></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
+        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_telefoon'] .'" style="padding-top: 8px;"></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
+        echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_website'].'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
 
         // twitter ROW deze is niet verplicht
         if (!empty($row['twitter'])) {
-            echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: 33px; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_twitter'] .'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['twitter'] . '</p><br/>';
+            echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_twitter'] .'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['twitter'] . '</p><br/>';
         }
 
         // linkedIN ROW deze is niet verplicht
         if (!empty($row['linkedin'])) {
-            echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: 33px; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_linkedin'] .'" style="padding-top: 8px"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['linkedin'] . '</p><br/>';
+            echo '<div style=" background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_linkedin'] .'" style="padding-top: 8px"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['linkedin'] . '</p><br/>';
         }
 
         if($row['logo'] == 1) echo '</div>';
