@@ -61,28 +61,28 @@ if (isset($_POST['submit'])) {
     <label for="website">website:</label>
     <input type="text" id="website" name="website" value="<?php if (!empty($website)) echo $website; ?>"/><br/>
     <label for="twitter">twitter:</label>
-    <input type="text" id="twitter" name="twitter" value="<?php if (!empty($twitter)) echo $twitter; ?>"/> *niet
-    verplicht<br/>
+    <input type="text" id="twitter" name="twitter" value="<?php if (!empty($twitter)) echo $twitter; ?>"/>
+    <label class="niet_verplicht">*niet verplicht</label><br/>
     <label for="linkedin">linkedIN:</label>
-    <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>*niet
-    verplicht<br/>
+    <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>
+    <label class="niet_verplicht">*niet verplicht</label><br/>
     <label for="logo">kies een logo:</label><br/>
-    1<input type="checkbox" id="logo" name="logo" value="0">boerenbusines <br/><br/>
-    2<input type="checkbox" id="logo" name="logo" value="1">uienhandel <br/><br/>
-    3<input type="checkbox" id="logo" name="logo" value="2">dca multimedia <br/><br/>
-    4<input type="checkbox" id="logo" name="logo" value="3">dca-ict <br/><br/>
-    5<input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
-    6<input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
-    7<input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/><br/>
+    <label>1: </label><input type="checkbox" id="logo" name="logo" value="0">boerenbusines <br/><br/>
+    <label>2: </label><input type="checkbox" id="logo" name="logo" value="1">uienhandel <br/><br/>
+    <label>3: </label><input type="checkbox" id="logo" name="logo" value="2">dca multimedia <br/><br/>
+    <label>4: </label><input type="checkbox" id="logo" name="logo" value="3">dca-ict <br/><br/>
+    <label>5: </label><input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
+    <label>6: </label><input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
+    <label>7: </label><input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/><br/>
     <label for="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
     <label for="element1">disclaimer:</label>
-    <input type="text" id="element1" name="element1" value="<?php if (!empty($element1)) echo $element1; ?>"/> *niet
-    verplicht <br/>
+    <input type="text" id="element1" name="element1" value="<?php if (!empty($element1)) echo $element1; ?>"/>
+    <label class="niet_verplicht">*niet verplicht</label> <br/>
     <label for="element2">andere info:</label>
-    <input type="text" id="element2" name="element2" value="<?php if (!empty($element2)) echo $element2; ?>"/> *niet
-    verplicht <br/>
+    <input type="text" id="element2" name="element2" value="<?php if (!empty($element2)) echo $element2; ?>"/>
+    <label class="niet_verplicht">*niet verplicht</label> <br/>
     <input type="submit" value="add" name="submit">
     <hr/>
 </form>
