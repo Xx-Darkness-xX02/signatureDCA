@@ -86,5 +86,6 @@ if (isset($_POST['submit'])) {
     <input type="submit" value="add" name="submit">
     <hr/>
 </form>
+<a href="maken.php">resultaat</a>
 </body>
 </html>
