@@ -119,8 +119,8 @@ while($row = mysqli_fetch_array($data))
         if (!empty($row['element1']) && $row['socialmedia']== 'yes'){
             echo '<p style="color: '.$brandresolve[$row['logo']]['color_disc'].'; font-style: italic; padding-left: 30px;  padding-right: 30px; font-family: arial; width: 228px;">' . $row['element1'] . '</p>';
         }
-        elseif (!empty($row['element1']) && ($row['socialmedia']== 'no')){
-            echo '<hr class="streepje2" style="width: 230.4px; color: #e3e3e3; margin-left: 28.8px;" />';
+        elseif (!empty($row['element1']) && ($row['socialmedia']== 'nee')){
+            echo '<hr class="streepje2" style="width: 230.4px; color: #e3e3e3; margin-left: 28.8px; margin-top: 20px;" />';
             echo '<p class="disclaimer" style="color: '.$brandresolve[$row['logo']]['color_disc'].'; font-style: italic; padding-left: 30px; width: 228px;">' . $row['element1'] . '</p>';
         }
 

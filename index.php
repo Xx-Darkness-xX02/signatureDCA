@@ -19,22 +19,21 @@ require_once('connectvars.php');
 <?php
 if (isset($_POST['submit'])) {
 
-    $naam = $_POST['naam'];
-    $functie = $_POST['functie'];
-    $email = $_POST['email'];
-    $telefoonnummer = $_POST['telefoonnummer'];
-    $website = $_POST['website'];
-    $twitter = $_POST['twitter'];
-    $linkedin = $_POST['linkedin'];
+    $naam = mysqli_real_escape_string($dbc, trim($_POST['naam']));
+    $functie = mysqli_real_escape_string($dbc, trim($_POST['functie']));
+    $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
+    $telefoonnummer =mysqli_real_escape_string($dbc, trim($_POST['telefoonnummer']));
+    $website = mysqli_real_escape_string($dbc, trim($_POST['website']));
+    $twitter = mysqli_real_escape_string($dbc, trim($_POST['twitter']));
+    $linkedin = mysqli_real_escape_string($dbc, trim($_POST['linkedin']));
     $logo = $_POST['logo'];
     $social = $_POST['social'];
-    $element1 = $_POST['element1'];
-    $element2 = $_POST['element2'];
+    $element1 = mysqli_real_escape_string($dbc, trim($_POST['element1']));
     $footer = $_POST['footer'];
 
     if (!empty($naam) && !empty($functie) && !empty($email)) {
         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, logo, socialmedia, element1, element2)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1', '$element2' )";
+        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, logo, socialmedia, element1, element2)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1', '' )";
 
         mysqli_query($dbc, $query);
 
@@ -48,7 +47,8 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <hr/>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <input type="hidden" name="MAX_FILE_SIZE" value="32768" />
     <label for="naam">naam:</label>
     <input type="text" id="naam" name="naam" value="<?php if (!empty($naam)) echo $naam; ?>"/><br/>
     <label for="functie">functie:</label>
@@ -73,15 +73,13 @@ if (isset($_POST['submit'])) {
     <label>4: </label><input type="checkbox" id="logo" name="logo" value="3">dca-ict <br/><br/>
     <label>5: </label><input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
     <label>6: </label><input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
-    <label>7: </label><input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/><br/>
+    <label>7: </label><input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/>
+    <input type="file" id="externe_logo" name="externe_logo"  /><br/>
     <label for="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
     <label for="element1">disclaimer:</label>
     <input type="text" id="element1" name="element1" value="<?php if (!empty($element1)) echo $element1; ?>"/>
-    <label class="niet_verplicht">*niet verplicht</label> <br/>
-    <label for="element2">andere info:</label>
-    <input type="text" id="element2" name="element2" value="<?php if (!empty($element2)) echo $element2; ?>"/>
     <label class="niet_verplicht">*niet verplicht</label> <br/>
     <input type="submit" value="add" name="submit">
     <hr/>
