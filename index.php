@@ -26,10 +26,9 @@ if (isset($_POST['submit'])) {
     $website = mysqli_real_escape_string($dbc, trim($_POST['website']));
     $twitter = mysqli_real_escape_string($dbc, trim($_POST['twitter']));
     $linkedin = mysqli_real_escape_string($dbc, trim($_POST['linkedin']));
-    $logo = $_POST['logo'];
-    $social = $_POST['social'];
+    $logo = intval($_POST['logo']);
+    $social = boolval($_POST['social']);
     $element1 = mysqli_real_escape_string($dbc, trim($_POST['element1']));
-    $footer = $_POST['footer'];
 
     if (!empty($naam) && !empty($functie) && !empty($email)) {
         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -74,7 +73,11 @@ if (isset($_POST['submit'])) {
     <label>5: </label><input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
     <label>6: </label><input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
     <label>7: </label><input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/>
-    <input type="file" id="externe_logo" name="externe_logo"  /><br/>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload" />
+        <input type="submit" value="Upload Image" name="submit" />
+    </form>
     <label for="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
