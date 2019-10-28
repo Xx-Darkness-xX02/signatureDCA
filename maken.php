@@ -57,55 +57,53 @@ $footer = isset($_POST['footer']) ? $_POST['footer'] : '';
 
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-if(!empty($footer)) $query = "SELECT * FROM dca_werknemers WHERE naam = '$footer'";
-else $query = "SELECT * FROM dca_werknemers";
-
+if(!empty($footer)) $query = "SELECT * FROM dca_werknemers d INNER JOIN brands b ON d.brand = b.id WHERE d.naam = '$footer'";
+else $query = "SELECT * FROM dca_werknemers d INNER JOIN brands b ON d.brand = b.id";
 $data = mysqli_query($dbc, $query);
 
-while($row = mysqli_fetch_array($data))
-{
-//BOERENBUSINESS FOOTERS
+while($row = mysqli_fetch_array($data)) {
+
+
     echo '<div class="footer_wrapper" style="font-family: Arial; box-sizing: border-box; height: 550px; width: 350px;">';
 
-   $brandresolve = array(0 => array('klasse' => "footerboerenbusiness", 'logo' => 'goede_img/boerenbusiness.png', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#3da0d5', 'icon_height' => '33px', 'icon_width' => '33px' ),
-                         1 => array('klasse' => "footeruienhandel", 'logo' => 'goede_img/Capture.JPG', 'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#950057', 'icon_height' => '33px', 'icon_width' => '33px'),
-                         2 => array('klasse' => "footerDCA", 'logo' => 'goede_img/dca_multimedia.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
-                         3 => array('klasse' => "footerDCA", 'logo' => 'goede_img/dca_ict.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
-                         4 => array('klasse' => "footerDCA", 'logo' => 'goede_img/dca_groep.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
-                         5 => array('klasse' => "footerDCA", 'logo' => 'goede_img/dca.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
-                         6 => array('klasse' => "footerDCA", 'logo' => 'goede_img/dca_markets.png', 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' )
+
+    $url = "http://localhost/website/signature";
+
+    $brandresolve = array(1 => array('klasse' => "footerboerenbusiness",  'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#3da0d5', 'icon_height' => '33px', 'icon_width' => '33px' ),
+                         2 => array('klasse' => "footeruienhandel",  'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#950057', 'icon_height' => '33px', 'icon_width' => '33px'),
+                         3 => array('klasse' => "footerDCA", 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
    );
 
 
         echo '<span class="copy" onclick="javascript:copyFooter(\''.$row['id'].'\')"><i class="fas fa-clipboard"></i></span>';
-        echo '<div id="'.$row['id'].'" class="'.$brandresolve[$row["logo"]]["klasse"].'" style="padding: 30px;">';
+        echo '<div id="'.$row['id'].'" class="'.$row["klasse"].'" style="padding: 30px;">';
         echo '<p>Met vriendelijke groet,</p> <br/>';
-        echo '<span style="font-weight: bold;">' . $row['naam'] . '</span><br />';
-        echo '<div style="color: '.$brandresolve[$row["logo"]]["color_primary"].'; font-style: italic;  font-size: 14px;">' . $row['functie'] . '</div><br />';
+        echo '<span style="font-weight: bold; font-size: 17px;">' . $row['naam'] . '</span><br />';
+        echo '<div style="color: '.$row[$row["logo"]]["color_primary"].'; font-style: italic;  font-size: 13px;">' . $row['functie'] . '</div><br />';
 
-        if($row['logo'] == 1) echo '<div style="display: inline-block; border-left: solid 2px #aeaeae">';
+        if($row[  'logo'] == 1) echo '<div style="display: inline-block; border-left: solid 2px #aeaeae">';
         else if($row['logo'] > 1) echo '<hr style="width: 30px; margin-left: 0;">';
 
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_email'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_telefoon'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_website'].'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_email'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_telefoon'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_website'].'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
 
         // twitter ROW deze is niet verplicht
         if (!empty($row['twitter'])) {
-            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_twitter'] .'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['twitter'] . '</p><br/>';
+            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_twitter'] .'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['twitter'] . '</p><br/>';
         }
 
         // linkedIN ROW deze is niet verplicht
         if (!empty($row['linkedin'])) {
-            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $brandresolve[$row['logo']]['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$brandresolve[$row['logo']]['icon_height'].'; width: 33px; text-align: center;"><img src="'. $brandresolve[$row['logo']]['icon_linkedin'] .'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['linkedin'] . '</p><br/>';
+            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_linkedin'] .'" style="padding-top: 8px;"></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['linkedin'] . '</p><br/>';
         }
 
         if($row['logo'] == 1) echo '</div>';
-        // Disclaimer 1
+
 
 // dit is de functie die bepaald welke image wordt afgebeeld
 
-     echo '<img style="margin-top: 10px;" src="'.$brandresolve[$row["logo"]]["logo"].'" /><br/>';
+     echo '<img style="margin-top: 15px;" src="uploads/'.$row['image'].'" /><br/>';
 
         //dit is de functie die bepaald of er wel of geen social media iconen moeten komen te staan
         if ($row['socialmedia'] == 'yes'){
@@ -117,11 +115,11 @@ while($row = mysqli_fetch_array($data))
         }
 
         if (!empty($row['element1']) && $row['socialmedia']== 'yes'){
-            echo '<p style="color: '.$brandresolve[$row['logo']]['color_disc'].'; font-style: italic; padding-left: 30px;  padding-right: 30px; font-family: arial; width: 228px;">' . $row['element1'] . '</p>';
+            echo '<p style="color: '.$row['color_disc'].'; font-style: italic; padding-left: 30px;  padding-right: 30px; font-family: arial; width: 228px;">' . $row['element1'] . '</p>';
         }
         elseif (!empty($row['element1']) && ($row['socialmedia']== 'nee')){
             echo '<hr class="streepje2" style="width: 230.4px; color: #e3e3e3; margin-left: 28.8px; margin-top: 20px;" />';
-            echo '<p class="disclaimer" style="color: '.$brandresolve[$row['logo']]['color_disc'].'; font-style: italic; padding-left: 30px; width: 228px;">' . $row['element1'] . '</p>';
+            echo '<p class="disclaimer" style="color: '.$row['color_disc'].'; font-style: italic; padding-left: 30px; width: 228px;">' . $row['element1'] . '</p>';
         }
 
         echo '</div></div>';

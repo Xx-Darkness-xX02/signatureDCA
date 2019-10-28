@@ -18,7 +18,7 @@ require_once('connectvars.php');
 
 <?php
 if (isset($_POST['submit'])) {
-
+$dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
     $naam = mysqli_real_escape_string($dbc, trim($_POST['naam']));
     $functie = mysqli_real_escape_string($dbc, trim($_POST['functie']));
     $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
@@ -27,12 +27,12 @@ if (isset($_POST['submit'])) {
     $twitter = mysqli_real_escape_string($dbc, trim($_POST['twitter']));
     $linkedin = mysqli_real_escape_string($dbc, trim($_POST['linkedin']));
     $logo = intval($_POST['logo']);
-    $social = boolval($_POST['social']);
+    $social = $_POST['social'];
     $element1 = mysqli_real_escape_string($dbc, trim($_POST['element1']));
 
     if (!empty($naam) && !empty($functie) && !empty($email)) {
-        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, logo, socialmedia, element1, element2)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1', '' )";
+
+        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, logo, socialmedia, element1)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1')";
 
         mysqli_query($dbc, $query);
 
@@ -66,18 +66,21 @@ if (isset($_POST['submit'])) {
     <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>
     <label class="niet_verplicht">*niet verplicht</label><br/>
     <label for="logo">kies een logo:</label><br/>
-    <label>1: </label><input type="checkbox" id="logo" name="logo" value="0">boerenbusines <br/><br/>
-    <label>2: </label><input type="checkbox" id="logo" name="logo" value="1">uienhandel <br/><br/>
-    <label>3: </label><input type="checkbox" id="logo" name="logo" value="2">dca multimedia <br/><br/>
-    <label>4: </label><input type="checkbox" id="logo" name="logo" value="3">dca-ict <br/><br/>
-    <label>5: </label><input type="checkbox" id="logo" name="logo" value="4">dca groep <br/><br/>
-    <label>6: </label><input type="checkbox" id="logo" name="logo" value="5">dca marktconsult <br/><br/>
-    <label>7: </label><input type="checkbox" id="logo" name="logo" value="6">dca-markets <br/>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload" />
-        <input type="submit" value="Upload Image" name="submit" />
-    </form>
+    <?php
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $query = "SELECT * FROM brands";
+
+    $result = mysqli_query($dbc, $query);
+    $i = 1;
+    while ($row = mysqli_fetch_array($result)) {
+
+
+        echo '<input type="checkbox" id="logo" name="logo" value="'. $i++ .'">' . $row['bedrijf'] . '<br/><br/>';
+
+    }
+
+    mysqli_close($dbc)
+    ?>
     <label for="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
