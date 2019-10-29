@@ -8,7 +8,6 @@
 <hr />
 <style>
     span.copy{
-
         margin: 20px;
     }
 
@@ -16,6 +15,8 @@
         border: solid 1px black;
         display: inline-block;
         margin-left: 10px;
+        background-color: rgba(255, 255, 255, 0.62);
+
     }
 
     *{
@@ -24,11 +25,13 @@
 
     i{
         margin-top: 10px;
-        color: darkgrey;
+        color: rgba(169, 169, 169, 0.44);
     }
 
     body{
         margin: 0;
+        background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+        height: 100%;
     }
 </style>
 <script>
@@ -69,10 +72,7 @@ while($row = mysqli_fetch_array($data)) {
 
     $url = "http://localhost/website/signature";
 
-    $brandresolve = array(1 => array('klasse' => "footerboerenbusiness",  'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#3da0d5', 'icon_height' => '33px', 'icon_width' => '33px' ),
-                         2 => array('klasse' => "footeruienhandel",  'color_primary' => '#950057', 'color_disc' => '#aeaeae', 'icon_email' => 'goede_icons/email_ui_bb.png', 'icon_telefoon' => 'goede_icons/telefoon_ui_bb.png', 'icon_website' => 'goede_icons/internet_ui_bb.png', 'icon_twitter' => 'goede_icons/twitter_ui_bb.png', 'icon_linkedin' => 'goede_icons/linkedIN_ui_bb.png', 'color_icon' => '#950057', 'icon_height' => '33px', 'icon_width' => '33px'),
-                         3 => array('klasse' => "footerDCA", 'color_disc' => '#d6dee3', 'icon_email' => 'goede_icons/email_dca.png', 'icon_telefoon' => 'goede_icons/telefoon_dca.png', 'icon_website' => 'goede_icons/internet_dca.png', 'icon_twitter' => 'goede_icons/twitter_dca.png', 'icon_linkedin' => 'goede_icons/linkedIN_dca.png' ),
-   );
+
 
 
         echo '<span class="copy" onclick="javascript:copyFooter(\''.$row['id'].'\')"><i class="fas fa-clipboard"></i></span>';

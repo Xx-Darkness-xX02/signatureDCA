@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,13 +7,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
+<body style="font-family: Arial;">
 <form action="upload.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">selecteer bestand om te uploaden:</label>
     <input type="file" name="fileToUpload" id="fileToUpload"/><br/><br/>
     <label for="bedrijf">voer het naam in van het bedrijf:</label>
     <input type="text" name="bedrijf" id="bedrijf">
-    <input type="submit" value="Upload Image" name="submit"/>
+    <input type="submit" value="Upload Image" name="submit"/><br/>
+
+
+    <div>
+
+        <?php
+        if (isset($_GET['id']) && isset($_GET['image']) && isset($_GET['bedrijf'])) {
+            $id = $_GET['id'];
+            $image = $_GET['image'];
+            $bedrijf = $_GET['bedrijf'];
+        }
+        //verbinding met de database.
+        $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
+        $query = "SELECT bedrijf FROM brands";
+        $data = mysqli_query($dbc, $query);
+
+        //while loop die alle row's laat zien.
+        while ($row = mysqli_fetch_array($data)) {
+            echo '<form action="verwijder.php">';
+            echo '' . $row['bedrijf'] . '';
+            echo '<input type="button" value="verwijderen" name="remove"><br />';
+            echo '</form>';
+        }
+
+        if (isset($_POST['verwijderen'])) {
+            $delete = "DELETE FROM brands WHERE id = $id LIMIT 1;";
+            $verwijderen = mysqli_query($dbc, $delete);
+            mysqli_close($dbc);
+            echo 'het bedrijf is succesvol verwijderd';
+        } else {
+            echo 'er gaat hier iets mis.';
+        }
+
+        //verbinding met database verbroken.
+        mysqli_close($dbc);
+        ?>
+    </div>
 </form>
 </body>
 </html>
@@ -81,3 +116,4 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
+

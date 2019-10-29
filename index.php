@@ -13,16 +13,17 @@ require_once('connectvars.php');
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <?php
 if (isset($_POST['submit'])) {
-$dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
+    $dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
     $naam = mysqli_real_escape_string($dbc, trim($_POST['naam']));
     $functie = mysqli_real_escape_string($dbc, trim($_POST['functie']));
     $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
-    $telefoonnummer =mysqli_real_escape_string($dbc, trim($_POST['telefoonnummer']));
+    $telefoonnummer = mysqli_real_escape_string($dbc, trim($_POST['telefoonnummer']));
     $website = mysqli_real_escape_string($dbc, trim($_POST['website']));
     $twitter = mysqli_real_escape_string($dbc, trim($_POST['twitter']));
     $linkedin = mysqli_real_escape_string($dbc, trim($_POST['linkedin']));
@@ -45,9 +46,12 @@ $dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
 
 }
 ?>
-<hr/>
-<form enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <input type="hidden" name="MAX_FILE_SIZE" value="32768" />
+
+<form class="formulier" enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <input type="hidden" name="MAX_FILE_SIZE" value="32768"/>
+    <label style="font-weight: normal">vul alle verplichte velden in. <label class="niet_verplicht">*</label> : zijn
+        velden die niet verplicht zijn</label><br/>
+    <hr/>
     <label for="naam">naam:</label>
     <input type="text" id="naam" name="naam" value="<?php if (!empty($naam)) echo $naam; ?>"/><br/>
     <label for="functie">functie:</label>
@@ -61,23 +65,22 @@ $dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
     <input type="text" id="website" name="website" value="<?php if (!empty($website)) echo $website; ?>"/><br/>
     <label for="twitter">twitter:</label>
     <input type="text" id="twitter" name="twitter" value="<?php if (!empty($twitter)) echo $twitter; ?>"/>
-    <label class="niet_verplicht">*niet verplicht</label><br/>
+    <label class="niet_verplicht">*</label><br/>
     <label for="linkedin">linkedIN:</label>
     <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>
-    <label class="niet_verplicht">*niet verplicht</label><br/>
+    <label class="niet_verplicht">*</label><br/>
     <label for="logo">kies een logo:</label><br/>
     <?php
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     $query = "SELECT * FROM brands";
-
     $result = mysqli_query($dbc, $query);
     $i = 1;
+
+
     while ($row = mysqli_fetch_array($result)) {
-
-
-        echo '<input type="checkbox" id="logo" name="logo" value="'. $i++ .'">' . $row['bedrijf'] . '<br/><br/>';
-
+        echo '<input type="checkbox" id="logo" name="logo" value="' . $i++ . '">' . $row['bedrijf'] . '<br/><br/>';
     }
+
 
     mysqli_close($dbc)
     ?>
@@ -86,10 +89,12 @@ $dbc = mysqli_connect('localhost', 'root', '', 'dca_signature');
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
     <label for="element1">disclaimer:</label>
     <input type="text" id="element1" name="element1" value="<?php if (!empty($element1)) echo $element1; ?>"/>
-    <label class="niet_verplicht">*niet verplicht</label> <br/>
-    <input type="submit" value="add" name="submit">
+    <label class="niet_verplicht">*</label> <br/><br />
+    <input class="submit" type="submit" value="add" name="submit">
     <hr/>
+    <a href="maken.php">resultaat</a>
+    <a href="upload.php">admin</a>
 </form>
-<a href="maken.php">resultaat</a>
+
 </body>
 </html>
