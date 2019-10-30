@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 
     if (!empty($naam) && !empty($functie) && !empty($email)) {
 
-        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, logo, socialmedia, element1)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1')";
+        $query = "INSERT INTO dca_werknemers (naam, functie, email, telefoonnummer, website, twitter, linkedin, brand, socialmedia, element1)  VALUES ('$naam', '$functie', '$email', '$telefoonnummer', '$website', '$twitter', '$linkedin', '$logo', '$social', '$element1')";
 
         mysqli_query($dbc, $query);
 

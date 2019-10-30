@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body style="font-family: Arial;">
 <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -19,33 +20,18 @@
     <div>
 
         <?php
-        if (isset($_GET['id']) && isset($_GET['image']) && isset($_GET['bedrijf'])) {
-            $id = $_GET['id'];
-            $image = $_GET['image'];
-            $bedrijf = $_GET['bedrijf'];
-        }
         //verbinding met de database.
         $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
-        $query = "SELECT bedrijf FROM brands";
+        $query = "SELECT * FROM brands";
         $data = mysqli_query($dbc, $query);
 
+        echo '<form>';
         //while loop die alle row's laat zien.
         while ($row = mysqli_fetch_array($data)) {
-            echo '<form action="verwijder.php">';
-            echo '' . $row['bedrijf'] . '';
-            echo '<input type="button" value="verwijderen" name="remove"><br />';
-            echo '</form>';
+            echo '<tr><td><strong>' . $row['bedrijf'] . '</strong></td>';
+            echo '<td><a href="verwijder.php?id='.$row['id'].'">Remove</a></td></tr><br />';
         }
-
-        if (isset($_POST['verwijderen'])) {
-            $delete = "DELETE FROM brands WHERE id = $id LIMIT 1;";
-            $verwijderen = mysqli_query($dbc, $delete);
-            mysqli_close($dbc);
-            echo 'het bedrijf is succesvol verwijderd';
-        } else {
-            echo 'er gaat hier iets mis.';
-        }
-
+        echo '</form>';
         //verbinding met database verbroken.
         mysqli_close($dbc);
         ?>

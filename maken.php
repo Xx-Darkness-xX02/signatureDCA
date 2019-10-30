@@ -15,7 +15,7 @@
         border: solid 1px black;
         display: inline-block;
         margin-left: 10px;
-        background-color: rgba(255, 255, 255, 0.62);
+        background-color: rgb(255, 255, 255);
 
     }
 
