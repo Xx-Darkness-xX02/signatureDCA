@@ -30,7 +30,7 @@
 
     body{
         margin: 0;
-        background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+        background-image: linear-gradient(#2af598 0%, #009efd 100%);
         height: 100%;
     }
 </style>
@@ -84,9 +84,9 @@ while($row = mysqli_fetch_array($data)) {
         if($row[  'logo'] == 1) echo '<div style="display: inline-block; border-left: solid 2px #aeaeae">';
         else if($row['logo'] > 1) echo '<hr style="width: 30px; margin-left: 0;">';
 
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_email'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_telefoon'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
-        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_website'].'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url.'/goede_icons/'.$row['icon_email'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['email'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url.'/goede_icons/'.$row['icon_telefoon'] .'" style="padding-top: 8px; "></div><p  class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['telefoonnummer'] . '</p><br/>';
+        echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url.'/goede_icons/'.$row['icon_website'].'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['website'] . '</p><br/>';
 
         // twitter ROW deze is niet verplicht
         if (!empty($row['twitter'])) {

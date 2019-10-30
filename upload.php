@@ -9,34 +9,38 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body style="font-family: Arial;">
-<form action="upload.php" method="post" enctype="multipart/form-data">
+
+<form class="aanmaken" action="upload.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">selecteer bestand om te uploaden:</label>
     <input type="file" name="fileToUpload" id="fileToUpload"/><br/><br/>
+    <input type="color" name="color_primary" id="color_primary"><br />
     <label for="bedrijf">voer het naam in van het bedrijf:</label>
     <input type="text" name="bedrijf" id="bedrijf">
     <input type="submit" value="Upload Image" name="submit"/><br/>
-
-
-    <div>
-
-        <?php
-        //verbinding met de database.
-        $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
-        $query = "SELECT * FROM brands";
-        $data = mysqli_query($dbc, $query);
-
-        echo '<form>';
-        //while loop die alle row's laat zien.
-        while ($row = mysqli_fetch_array($data)) {
-            echo '<tr><td><strong>' . $row['bedrijf'] . '</strong></td>';
-            echo '<td><a href="verwijder.php?id='.$row['id'].'">Remove</a></td></tr><br />';
-        }
-        echo '</form>';
-        //verbinding met database verbroken.
-        mysqli_close($dbc);
-        ?>
-    </div>
 </form>
+
+<div class="verwijderen">
+    <?php
+    $color = $_POST['color_primary'];
+    print_r($color);
+    //verbinding met de database.
+    $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
+    $query = "SELECT * FROM brands";
+    $data = mysqli_query($dbc, $query);
+
+    echo '<form>';
+    echo '<h2>bedrijf verwijderen</h2>';
+    //while loop die alle row's laat zien.
+    while ($row = mysqli_fetch_array($data)) {
+        echo '<tr><td><strong>' . $row['bedrijf'] . '</strong></td>';
+        echo '<td><a href="verwijder.php?id='.$row['id'].'">Remove</a></td></tr><br />';
+    }
+    echo '</form>';
+    //verbinding met database verbroken.
+    mysqli_close($dbc);
+    ?>
+</div>
+
 </body>
 </html>
 
@@ -60,7 +64,7 @@ if (isset($_POST["submit"])) {
             $uploadOk = 0;
         }
         $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
-        $query = "INSERT INTO images (image, bedrijf) VALUES ('$naam', '$bedrijf')";
+        $query = "INSERT INTO brands (image, bedrijf) VALUES ('$naam', '$bedrijf')";
         mysqli_query($dbc, $query);
         mysqli_close($dbc);
 
