@@ -23,7 +23,7 @@ $sql = "DELETE FROM brands WHERE id = $id LIMIT 1";
 
 if (mysqli_query($conn, $sql)) {
     mysqli_close($conn);
-    header('Location: upload.php');
+    header('Location: index.php');
     exit;
 } else {
     echo "Error deleting record";

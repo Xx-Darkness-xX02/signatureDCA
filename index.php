@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 <form class="formulier" enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div class="naam">
         <input type="hidden" name="MAX_FILE_SIZE" value="32768"/>
-        <label style="font-weight: normal; width: 100%" class="info">vul alle verplichte velden in. <label class="niet_verplicht" style="margin-left: 0;display: inline-block; width: 12px;">*</label>zijn
+        <label style="font-weight: normal; width: 100%" class="info">vul alle verplichte velden in. *  zijn
             velden die niet verplicht zijn</label><br/>
         <hr/>
         <label for="naam">naam:</label>
@@ -64,12 +64,10 @@ if (isset($_POST['submit'])) {
                value="<?php if (!empty($telefoonnummer)) echo $telefoonnummer; ?>"/><br/>
         <label for="website">website:</label>
         <input type="text" id="website" name="website" value="<?php if (!empty($website)) echo $website; ?>"/><br/>
-        <label for="twitter">twitter:</label>
+        <label for="twitter">twitter*:</label>
         <input type="text" id="twitter" name="twitter" value="<?php if (!empty($twitter)) echo $twitter; ?>"/>
-        <label class="niet_verplicht">*</label><br/>
-        <label for="linkedin">linkedIN:</label>
+        <label for="linkedin">linkedIN*:</label>
         <input type="text" id="linkedin" name="linkedin" value="<?php if (!empty($linkedin)) echo $linkedin; ?>"/>
-        <label class="niet_verplicht">*</label><br/>
         <label for="logo">kies een logo:</label><br/>
     </div>
     <?php
@@ -80,7 +78,7 @@ if (isset($_POST['submit'])) {
 
     echo '<div class="checkboxes">';
     while ($row = mysqli_fetch_array($result)) {
-        echo '<input type="checkbox" id="logo" name="logo" value="' . $row['id'] . '">' . $row['bedrijf'] . '<br/><br/>';
+        echo '<input type="radio" id="logo" name="logo" value="' . $row['id'] . '">' . $row['bedrijf'] . '<br/><br/>';
     }
     echo '</div><br />';
 
@@ -89,9 +87,9 @@ if (isset($_POST['submit'])) {
     <label for="social" class="social">social media iconen: </label>
     <input type="radio" id="social" name="social" value="yes">ja
     <input type="radio" id="social" name="social" value="nee" checked>nee<br/>
-    <label for="element1" class="disclaimer">disclaimer:</label>
+    <label for="element1" class="disclaimer">disclaimer*:</label>
     <input type="text" id="element1" name="element1" value="<?php if (!empty($element1)) echo $element1; ?>"/>
-    <label class="niet_verplicht">*</label> <br/><br/>
+    <br/><br/>
     <input class="submit" type="submit" value="add" name="submit">
     <hr/>
     <a href="maken.php">resultaat</a>

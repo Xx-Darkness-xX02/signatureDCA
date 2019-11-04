@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: roboto,sans-serif;
 }
 
 body {
@@ -24,4 +25,9 @@ div.verwijderen {
     display: inline-block;
     padding: 10px;
     border-radius: 25px;
+}
+
+form.aanmaken a {
+    text-decoration: none;
+    font-family: roboto, sans-serif;
 }

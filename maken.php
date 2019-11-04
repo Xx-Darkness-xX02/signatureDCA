@@ -76,10 +76,10 @@ while($row = mysqli_fetch_array($data)) {
 
 
         echo '<span class="copy" onclick="javascript:copyFooter(\''.$row['id'].'\')"><i class="fas fa-clipboard"></i></span>';
-        echo '<div id="'.$row['id'].'" class="'.$row["klasse"].'" style="padding: 30px;">';
+        echo '<div id="'.$row['_d'].'" class="'.$row["klasse"].'" style="padding: 30px;">';
         echo '<p>Met vriendelijke groet,</p> <br/>';
         echo '<span style="font-weight: bold; font-size: 17px;">' . $row['naam'] . '</span><br />';
-        echo '<div style="color: '.$row[$row["logo"]]["color_primary"].'; font-style: italic;  font-size: 13px;">' . $row['functie'] . '</div><br />';
+        echo '<div style="color: '.$row["color_primary"].'; font-style: italic;  font-size: 13px;">' . $row['functie'] . '</div><br />';
 
         if($row[  'logo'] == 1) echo '<div style="display: inline-block; border-left: solid 2px #aeaeae">';
         else if($row['logo'] > 1) echo '<hr style="width: 30px; margin-left: 0;">';
@@ -103,7 +103,7 @@ while($row = mysqli_fetch_array($data)) {
 
 // dit is de functie die bepaald welke image wordt afgebeeld
 
-     echo '<img style="margin-top: 15px;" src="uploads/'.$row['image'].'" /><br/>';
+     echo '<img style="margin-top: 15px;" src="'. $url .'/uploads/'.$row['image'].'" /><br/>';
 
         //dit is de functie die bepaald of er wel of geen social media iconen moeten komen te staan
         if ($row['socialmedia'] == 'yes'){

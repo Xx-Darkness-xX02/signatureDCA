@@ -29,5 +29,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="dca_signature@localhost [3]" uuid="8721b6e1-2360-4be0-b09a-00c15281c250">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/dca_signature</jdbc-url>
+    </data-source>
   </component>
 </project>
