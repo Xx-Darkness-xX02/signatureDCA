@@ -25,9 +25,16 @@ input {
     border: #cacaca solid 1px;
 }
 
-label {
-    font-weight: bolder;
-    margin-left: 10px;
+label.disclaimer {
+    width: 160px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+label.social {
+    width: 160px;
+    display: inline-block;
+    font-weight: 500;
 }
 
 label.niet_verplicht {
@@ -49,4 +56,15 @@ p {
     color: #f53339;
 }
 
+.naam label {
+    width: 160px;
+    display: inline-block;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.checkboxes {
+    display: inline-block;
+    margin-left: 20px;
+}
 
