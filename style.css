@@ -19,9 +19,10 @@ form {
 input {
     margin-top: 5px;
     border-radius: 5%;
-    border: none;
-    background-color: #cfcfcf;
+    background-color: #ecebeb;
     margin-left: 10px;
+    padding: 5px;
+    border: #cacaca solid 1px;
 }
 
 label {

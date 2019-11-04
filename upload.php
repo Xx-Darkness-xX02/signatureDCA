@@ -11,18 +11,21 @@
 <body style="font-family: Arial;">
 
 <form class="aanmaken" action="upload.php" method="post" enctype="multipart/form-data">
+    <h2>bedrijf uploaden</h2>
     <label for="fileToUpload">selecteer bestand om te uploaden:</label>
     <input type="file" name="fileToUpload" id="fileToUpload"/><br/><br/>
-    <input type="color" name="color_primary" id="color_primary"><br />
     <label for="bedrijf">voer het naam in van het bedrijf:</label>
-    <input type="text" name="bedrijf" id="bedrijf">
-    <input type="submit" value="Upload Image" name="submit"/><br/>
+    <input type="text" name="bedrijf" id="bedrijf"><br /><br /><br/>
+    <label for=""><strong>selecteer een template</strong></label>
+    <input type="checkbox" name="boerenbusiness" id="checkbox"><div style="height: 33px; background-color: #4facfe; display: inline-block; border-radius: 50%; width: 33px; "><img src="goede_icons/email_ui_bb.png" alt="#" style="padding-top: 8px; padding-left:8px;"></div>
+    <input type="checkbox" name="uienhandel" id="checkbox"><div style="height: 33px; background-color: #950057; display: inline-block; border-radius: 50%; width: 33px; "><img src="goede_icons/email_ui_bb.png" alt="#" style="padding-top: 8px; padding-left:8px;"></div>
+    <input type="checkbox" name="dca" id="checkbox"><div style="display: inline-block"><img src="goede_icons/email_dca.png" alt=""></div>
+    <br>
+    <input type="submit" value="Upload Image" name="submit"/>
 </form>
 
 <div class="verwijderen">
     <?php
-    $color = $_POST['color_primary'];
-    print_r($color);
     //verbinding met de database.
     $dbc = mysqli_connect("localhost", "root", "", "dca_signature");
     $query = "SELECT * FROM brands";

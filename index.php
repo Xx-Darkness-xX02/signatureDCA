@@ -13,7 +13,7 @@ require_once('connectvars.php');
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -74,11 +74,11 @@ if (isset($_POST['submit'])) {
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     $query = "SELECT * FROM brands";
     $result = mysqli_query($dbc, $query);
-    $i = 1;
+
 
 
     while ($row = mysqli_fetch_array($result)) {
-        echo '<input type="checkbox" id="logo" name="logo" value="' . $i++ . '">' . $row['bedrijf'] . '<br/><br/>';
+        echo '<input type="checkbox" id="logo" name="logo" value="' . $row['id']. '">' . $row['bedrijf'] . '<br/><br/>';
     }
 
 

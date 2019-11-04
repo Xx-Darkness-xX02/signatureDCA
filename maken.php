@@ -30,7 +30,7 @@
 
     body{
         margin: 0;
-        background-image: linear-gradient(#2af598 0%, #009efd 100%);
+        background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
         height: 100%;
     }
 </style>
