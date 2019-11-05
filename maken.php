@@ -90,7 +90,7 @@ while($row = mysqli_fetch_array($data)) {
 
         // twitter ROW deze is niet verplicht
         if (!empty($row['twitter'])) {
-            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_twitter'] .'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' . $row['twitter'] . '</p><br/>';
+            echo '<div style="margin-top: 5px; margin-left: 5px; background-color:'. $row['color_icon'] .'; border-radius: 50%; display: inline-block; height: '.$row['icon_height'].'; width: 33px; text-align: center;"><img src="'.$url .'/goede_icons/'. $row['icon_twitter'] .'" style="padding-top: 8px; "></div><p class="icontekst" style="display: inline-block; margin: 6px 0 0 10px;">' .$row['twitter'] . '</p><br/>';
         }
 
         // linkedIN ROW deze is niet verplicht
